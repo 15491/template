@@ -1,0 +1,7 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'servers/bff'
+  - 'servers/microservices/*'
+  - 'servers/libs/*'
+  - 'servers/jobs/*'
