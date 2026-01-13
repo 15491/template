@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
-import { RbacService } from './rbac.service';
+import { Controller, Get } from '@nestjs/common'
+import { RbacService } from './rbac.service'
 
 @Controller()
 export class RbacController {
@@ -7,6 +7,6 @@ export class RbacController {
 
   @Get()
   getHello(): string {
-    return this.rbacService.getHello();
+    return this.rbacService.getHello()
   }
 }

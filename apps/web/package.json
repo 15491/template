@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "@template/web",
   "version": "0.0.0",
   "private": true,
@@ -28,14 +28,15 @@
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/tsconfig": "^0.8.1",
-    "eslint": "^9.39.2",
+    "eslint": "catalog:",
     "eslint-plugin-vue": "~10.6.2",
     "jiti": "^2.6.1",
     "npm-run-all2": "^8.0.4",
-    "prettier": "3.7.4",
-    "typescript": "~5.9.3",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
     "vite": "^7.3.0",
     "vite-plugin-vue-devtools": "^8.0.5",
-    "vue-tsc": "^3.2.1"
+    "vue-tsc": "^3.2.1",
+    "@template/config": "workspace:*"
   }
 }

@@ -1,1 +1,1 @@
-console.log('scripts index');
+console.log('scripts index')

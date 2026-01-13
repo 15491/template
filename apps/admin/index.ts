@@ -1,1 +1,1 @@
-console.log('adming');
+console.log('adming')

@@ -1,24 +1,24 @@
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
-import { map, Observable } from 'rxjs';
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common'
+import { map, Observable } from 'rxjs'
 
 // 将bigint转换为字符串，并保留日期类型不变
 const transformBigInt = (obj: any) => {
   if (typeof obj === 'bigint') {
-    return obj.toString();
+    return obj.toString()
   }
   if (Array.isArray(obj)) {
-    return obj.map(transformBigInt);
+    return obj.map(transformBigInt)
   }
   if (obj !== null && typeof obj === 'object') {
     if (obj instanceof Date) {
-      return obj;
+      return obj
     }
     return Object.fromEntries(
-      Object.entries(obj).map(([key, value]) => [key, transformBigInt(value)])
-    );
+      Object.entries(obj).map(([key, value]) => [key, transformBigInt(value)]),
+    )
   }
-  return obj;
-};
+  return obj
+}
 
 @Injectable()
 export class InterceptorInterceptor implements NestInterceptor {
@@ -33,9 +33,9 @@ export class InterceptorInterceptor implements NestInterceptor {
           message: data?.message || '请求成功',
           code: data?.code || 200,
           success: true,
-          data: transformBigInt(data?.data) ?? null
+          data: transformBigInt(data?.data) ?? null,
         }
-      })
+      }),
     )
   }
 }

@@ -32,20 +32,20 @@
 
 ### 3.1 BFF / 网关层（`servers/bff`）
 
-| Nest project | path | 说明 |
-|---|---|---|
-| `gateway` | `servers/bff/apps/gateway` | 对外 API 网关入口 |
-| `web` | `servers/bff/apps/web` | 面向前台 Web 的 BFF |
-| `admin` | `servers/bff/apps/admin` | 面向 Admin 的 BFF |
-| `mobile` | `servers/bff/apps/mobile` | 面向移动端的 BFF |
+| Nest project | path                       | 说明                |
+| ------------ | -------------------------- | ------------------- |
+| `gateway`    | `servers/bff/apps/gateway` | 对外 API 网关入口   |
+| `web`        | `servers/bff/apps/web`     | 面向前台 Web 的 BFF |
+| `admin`      | `servers/bff/apps/admin`   | 面向 Admin 的 BFF   |
+| `mobile`     | `servers/bff/apps/mobile`  | 面向移动端的 BFF    |
 
 ### 3.2 微服务层（`servers/microservices`）
 
-| Nest project | path | 说明 |
-|---|---|---|
-| `auth` | `servers/microservices/apps/auth` | 认证微服务 |
-| `rbac` | `servers/microservices/apps/rbac` | RBAC 微服务 |
-| `user` | `servers/microservices/apps/user` | 用户微服务 |
+| Nest project | path                              | 说明        |
+| ------------ | --------------------------------- | ----------- |
+| `auth`       | `servers/microservices/apps/auth` | 认证微服务  |
+| `rbac`       | `servers/microservices/apps/rbac` | RBAC 微服务 |
+| `user`       | `servers/microservices/apps/user` | 用户微服务  |
 
 ---
 
