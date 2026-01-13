@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common'
-import { ResponseService } from './response.service'
+import { ResponseService } from './response.service.js'
 
 @Module({
   providers: [ResponseService],

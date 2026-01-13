@@ -16,7 +16,9 @@
     "@types/pg": "^8.16.0",
     "prisma": "^7.2.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "@nestjs/common": "^11.0.1",
+    "rxjs": "^7.8.1"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.2.0",

@@ -1,23 +1,26 @@
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common'
+import { type CallHandler, type ExecutionContext, Injectable, type NestInterceptor } from '@nestjs/common'
 import { map, Observable } from 'rxjs'
 
 // 将bigint转换为字符串，并保留日期类型不变
-const transformBigInt = (obj: any) => {
-  if (typeof obj === 'bigint') {
-    return obj.toString()
+const transformBigInt = (value: unknown): unknown => {
+  if (typeof value === 'bigint') {
+    return value.toString()
   }
-  if (Array.isArray(obj)) {
-    return obj.map(transformBigInt)
+  if (Array.isArray(value)) {
+    return value.map(transformBigInt)
   }
-  if (obj !== null && typeof obj === 'object') {
-    if (obj instanceof Date) {
-      return obj
+  if (value !== null && typeof value === 'object') {
+    if (value instanceof Date) {
+      return value
     }
     return Object.fromEntries(
-      Object.entries(obj).map(([key, value]) => [key, transformBigInt(value)]),
+      Object.entries(value as Record<string, unknown>).map(([key, entryValue]) => [
+        key,
+        transformBigInt(entryValue),
+      ]),
     )
   }
-  return obj
+  return value
 }
 
 @Injectable()
