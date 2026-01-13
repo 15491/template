@@ -36,6 +36,9 @@ Thumbs.db
 coverage/
 .nyc_output/
 
+# ESLint
+.eslintcache
+
 # Temporary files
 tmp/
 temp/

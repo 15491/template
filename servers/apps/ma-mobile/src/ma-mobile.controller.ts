@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
-import { MaMobileService } from './ma-mobile.service';
+import { Controller, Get } from '@nestjs/common'
+import { MaMobileService } from './ma-mobile.service'
 
 @Controller()
 export class MaMobileController {
@@ -7,6 +7,6 @@ export class MaMobileController {
 
   @Get()
   getHello(): string {
-    return this.maMobileService.getHello();
+    return this.maMobileService.getHello()
   }
 }

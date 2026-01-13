@@ -9,11 +9,16 @@
 3. [权限与审计（RBAC）](./03-rbac-audit.md)
 4. [工程与工具链（pnpm workspace + Nest monorepo）](./04-tooling.md)
 5. [演进路线（分阶段落地）](./05-roadmap.md)
+6. [编码规范与最佳实践](./06-coding-standards.md)
 
 ## 关键约定（摘要）
 
-- `apps/`：前端应用。
-- `servers/`：后端应用与后端共享库。
-- `servers/bff/apps/gateway`：对外 API 网关入口。
-- `packages/`：跨端共享（尽量纯 TS、避免 Node-only 依赖）。
-- `servers/libs/`：仅后端复用（允许 Nest/Node/DB 等后端依赖）。
+- `apps/`：前端应用（Vue 3 + Vite）
+- `servers/`：后端服务（NestJS 单一 monorepo）
+- `servers/apps/gateway`：对外 API 网关入口
+- `servers/apps/ma-*`：BFF 层（ma-web、ma-admin、ma-mobile）
+- `servers/apps/ms-*`：微服务层（ms-auth、ms-rbac、ms-user）
+- `packages/`：跨端共享（纯 TS、避免 Node-only 依赖）
+- `servers/libs/`：仅后端复用（Nest/Node/DB 等后端依赖）
+- `@template/config`：统一的 Prettier 配置（ESLint 使用 @antfu/eslint-config）
+- `pnpm catalog`：统一版本管理（eslint、prettier、typescript）

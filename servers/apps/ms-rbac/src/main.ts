@@ -1,8 +1,8 @@
-import { NestFactory } from '@nestjs/core';
-import { MsRbacModule } from './ms-rbac.module';
+import { NestFactory } from '@nestjs/core'
+import { MsRbacModule } from './ms-rbac.module'
 
 async function bootstrap() {
-  const app = await NestFactory.create(MsRbacModule);
-  await app.listen(process.env.port ?? 3000);
+  const app = await NestFactory.create(MsRbacModule)
+  await app.listen(process.env.port ?? 3000)
 }
-bootstrap();
+void bootstrap()

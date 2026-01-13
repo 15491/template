@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
-import { MsUserService } from './ms-user.service';
+import { Controller, Get } from '@nestjs/common'
+import { MsUserService } from './ms-user.service'
 
 @Controller()
 export class MsUserController {
@@ -7,6 +7,6 @@ export class MsUserController {
 
   @Get()
   getHello(): string {
-    return this.msUserService.getHello();
+    return this.msUserService.getHello()
   }
 }

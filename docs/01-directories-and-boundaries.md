@@ -25,34 +25,38 @@
 │  ├─ admin/              # Admin 前端（待实现/占位）
 │  └─ mobile/             # 移动端前端（待实现/占位）
 │
-├─ servers/               # 后端服务（NestJS）
-│  ├─ bff/                # BFF + 网关层（Nest monorepo）
-│  │  ├─ apps/            # 后端应用集合（Nest 项目分组）
-│  │  │  ├─ gateway/      # 对外 API 网关（统一入口：鉴权接入、路由、限流等）
-│  │  │  ├─ web/          # 面向前台 Web 的 BFF
-│  │  │  ├─ admin/        # 面向 Admin 的 BFF（RBAC 强校验 + 审计）
-│  │  │  └─ mobile/       # 面向移动端的 BFF
-│  │  └─ nest-cli.json    # Nest monorepo 配置
-│  ├─ microservices/      # 领域微服务层（Nest monorepo）
-│  │  ├─ apps/            # 后端应用集合（Nest 项目分组）
-│  │  │  ├─ auth/         # 认证微服务：登录、token
-│  │  │  ├─ rbac/         # 授权数据：角色/权限/策略
-│  │  │  └─ user/         # 用户域
-│  │  └─ nest-cli.json    # Nest monorepo 配置
+├─ servers/               # 后端服务（NestJS 单一 Monorepo）
+│  ├─ apps/               # 所有后端应用（BFF + 微服务统一管理）
+│  │  ├─ gateway/         # API 网关：统一入口（鉴权、路由、限流）
+│  │  ├─ ma-web/          # BFF for Web：面向前台 Web 的后端适配
+│  │  ├─ ma-admin/        # BFF for Admin：面向管理后台（RBAC 强校验 + 审计）
+│  │  ├─ ma-mobile/       # BFF for Mobile：面向移动端的后端适配
+│  │  ├─ ms-auth/         # 微服务：认证（登录、token、会话管理）
+│  │  ├─ ms-rbac/         # 微服务：权限控制（角色、权限、策略）
+│  │  └─ ms-user/         # 微服务：用户域（用户信息、用户管理）
 │  ├─ libs/               # 仅后端使用的共享库
-│  │  ├─ common/          # 例：异常/校验/traceId 等（server-only）
-│  │  ├─ database/        # 例：数据库/ORM/迁移等（server-only）
-│  │  └─ logger/          # 例：日志封装（server-only）
-│  └─ jobs/               # 可选：定时任务 / 异步消费 worker（待实现）
+│  │  └─ shared/          # 共享工具：exception filters、interceptors、response service 等
+│  ├─ nest-cli.json       # Nest monorepo 配置（管理所有 apps + libs）
+│  ├─ tsconfig.json       # TypeScript 基础配置（路径别名：@app/shared 等）
+│  ├─ package.json        # 后端依赖与脚本
+│  └─ eslint.config.mjs   # ESLint 配置（使用 @antfu/eslint-config）
 │
 ├─ packages/              # 跨 apps/servers 的共享包（可被前端引用）
 │  ├─ common/             # 跨端共享 types/工具/错误码等
-│  ├─ config/             # 跨端共享配置/约定（不限定实现形式）
-│  └─ ...                 # 其他可跨端复用的包（例如 contracts、sdk、types）
+│  └─ config/             # 共享 Prettier 配置（@template/config）
 │
 ├─ docs/                  # 架构文档、ADR、接口约定
-└─ scripts/               # 脚本（如生成代码、检查、发布辅助）
+├─ scripts/               # 脚本（如生成代码、检查、发布辅助）
+├─ pnpm-workspace.yaml    # pnpm workspace 配置 + catalog 版本管理
+├─ .editorconfig          # 编辑器配置（2空格、LF）
+└─ prettier.config.cjs    # Prettier 配置（引用 @template/config）
 ```
+
+**命名约定说明：**
+
+- `ma-*`：Multi-App 或 Main-App 的 BFF 应用，按客户端分离（web/admin/mobile）
+- `ms-*`：Microservice 微服务，按业务域分离（auth/rbac/user）
+- `gateway`：API 网关，无前缀，作为统一入口
 
 ---
 
@@ -66,8 +70,11 @@
 
 ---
 
-## 4. 当前进度说明（截至 2026-01-09）
+## 4. 当前进度说明（截至 2026-01-13）
 
-- `servers/bff/apps/*`：BFF 与网关目录骨架已搭建
-- `servers/microservices/apps/*`：微服务目录骨架已搭建（业务逻辑按域逐步完善）
+- `servers/apps/*`：所有后端应用骨架已搭建（7个应用：1网关 + 3 BFF + 3微服务）
+- `servers/libs/shared`：共享库基础结构已创建（exception filter、interceptor、response service）
+- `packages/config`：共享配置包已完成（Prettier）
+- `pnpm workspace` + `catalog`：版本管理已配置（eslint、prettier、typescript 统一版本）
+- `apps/web`：前端应用已搭建（Vue 3 + Vite）
 - `apps/admin`、`apps/mobile`：前端应用目录已创建（待实现/占位）

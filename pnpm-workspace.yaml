@@ -1,10 +1,7 @@
 ﻿packages:
   - 'apps/*'
   - 'packages/*'
-  - 'servers/bff'
-  - 'servers/microservices'
-  - 'servers/libs'
-  - 'servers/jobs'
+  - 'servers'
   - 'scripts'
 
 catalog:
@@ -16,3 +13,4 @@ catalog:
   eslint-plugin-prettier: 5.2.2
   globals: 16.0.0
   typescript-eslint: 8.20.0
+  '@antfu/eslint-config': ^4.4.0

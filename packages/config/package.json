@@ -1,11 +1,9 @@
-﻿{
+{
   "name": "@template/config",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "exports": {
-    "./eslint/node": "./eslint/node.mjs",
-    "./eslint/vue": "./eslint/vue.mjs",
     "./prettier": "./prettier/index.cjs"
   }
 }

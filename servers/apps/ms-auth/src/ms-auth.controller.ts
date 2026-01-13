@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
-import { MsAuthService } from './ms-auth.service';
+import { Controller, Get } from '@nestjs/common'
+import { MsAuthService } from './ms-auth.service'
 
 @Controller()
 export class MsAuthController {
@@ -7,6 +7,6 @@ export class MsAuthController {
 
   @Get()
   getHello(): string {
-    return this.msAuthService.getHello();
+    return this.msAuthService.getHello()
   }
 }

@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
-import { SharedService } from './shared.service';
-import { ResponseModule } from './response/response.module';
+import { Module } from '@nestjs/common'
+import { ResponseModule } from './response/response.module'
+import { SharedService } from './shared.service'
 
 @Module({
   providers: [SharedService],

@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
-import { MaWebService } from './ma-web.service';
+import { Controller, Get } from '@nestjs/common'
+import { MaWebService } from './ma-web.service'
 
 @Controller()
 export class MaWebController {
@@ -7,6 +7,6 @@ export class MaWebController {
 
   @Get()
   getHello(): string {
-    return this.maWebService.getHello();
+    return this.maWebService.getHello()
   }
 }

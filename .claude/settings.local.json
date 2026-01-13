@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(dir:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(cat:*)",
+      "Bash(pnpm:*)",
+      "Bash(find apps packages -name \"package.json\" -exec sh -c 'echo \"\"=== {} ===\"\" && cat {}' ;)",
+      "Bash(git config:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(find:*)"
     ]
   }
 }
