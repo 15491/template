@@ -20,5 +20,5 @@
 - `servers/apps/ms-*`：微服务层（ms-auth、ms-rbac、ms-user）
 - `packages/`：跨端共享（纯 TS、避免 Node-only 依赖）
 - `servers/libs/`：仅后端复用（Nest/Node/DB 等后端依赖）
-- `@template/config`：统一的 Prettier 配置（ESLint 使用 @antfu/eslint-config）
+- `prettier.config.cjs`：根目录 Prettier 配置（所有子项目继承）
 - `pnpm catalog`：统一版本管理（eslint、prettier、typescript）

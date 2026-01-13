@@ -42,14 +42,13 @@
 │  └─ eslint.config.mjs   # ESLint 配置（使用 @antfu/eslint-config）
 │
 ├─ packages/              # 跨 apps/servers 的共享包（可被前端引用）
-│  ├─ common/             # 跨端共享 types/工具/错误码等
-│  └─ config/             # 共享 Prettier 配置（@template/config）
+│  └─ common/             # 跨端共享 types/工具/错误码等
 │
 ├─ docs/                  # 架构文档、ADR、接口约定
 ├─ scripts/               # 脚本（如生成代码、检查、发布辅助）
 ├─ pnpm-workspace.yaml    # pnpm workspace 配置 + catalog 版本管理
 ├─ .editorconfig          # 编辑器配置（2空格、LF）
-└─ prettier.config.cjs    # Prettier 配置（引用 @template/config）
+└─ prettier.config.cjs    # Prettier 配置（根目录，子项目自动继承）
 ```
 
 **命名约定说明：**
@@ -74,7 +73,7 @@
 
 - `servers/apps/*`：所有后端应用骨架已搭建（7个应用：1网关 + 3 BFF + 3微服务）
 - `servers/libs/shared`：共享库基础结构已创建（exception filter、interceptor、response service）
-- `packages/config`：共享配置包已完成（Prettier）
 - `pnpm workspace` + `catalog`：版本管理已配置（eslint、prettier、typescript 统一版本）
+- `prettier.config.cjs`：Prettier 配置在根目录（所有子项目自动继承）
 - `apps/web`：前端应用已搭建（Vue 3 + Vite）
 - `apps/admin`、`apps/mobile`：前端应用目录已创建（待实现/占位）

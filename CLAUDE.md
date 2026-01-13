@@ -106,8 +106,7 @@ template/
 │   └── libs/
 │       └── shared/          # 仅后端共享代码
 ├── packages/                # 跨端共享包
-│   ├── common/              # 共享类型/工具
-│   └── config/              # ESLint/Prettier 配置
+│   └── common/              # 共享类型/工具
 └── docs/                    # 架构文档
 ```
 
@@ -195,13 +194,20 @@ catalog:
 
 ### 共享配置架构
 
-**包：`@template/config`**（packages/config）
+**Prettier 配置**：
 
-仅导出 Prettier 配置：
+使用根目录的 `prettier.config.cjs` 直接定义配置，所有子项目自动继承：
 
 ```javascript
-// Prettier（所有项目）
-module.exports = require('@template/config/prettier')
+// prettier.config.cjs（根目录）
+/** @type {import("prettier").Config} */
+module.exports = {
+  semi: false,
+  singleQuote: true,
+  printWidth: 100,
+  trailingComma: 'all',
+  endOfLine: 'lf',
+}
 ```
 
 **ESLint 配置：** 使用 `@antfu/eslint-config` 直接配置，不再使用共享工厂函数。
@@ -228,10 +234,10 @@ export default antfu({
 
 **添加共享配置时：**
 
-1. 添加到 `packages/config/`（目前仅 Prettier）
-2. 从 `package.json` 的 exports 字段导出
-3. 在使用包中导入
-4. 如果版本变化，更新 `pnpm-workspace.yaml` 中的 catalog
+1. **Prettier**：直接修改根目录的 `prettier.config.cjs`（所有子项目自动继承）
+2. **ESLint**：直接修改各项目的 `eslint.config.mjs` 或 `eslint.config.ts`
+3. 如需要，更新 `pnpm-workspace.yaml` catalog 中的版本
+4. 运行 `pnpm install` 传播更改
 
 ## 代码风格标准
 
@@ -310,11 +316,11 @@ pnpm test:cov               # 带覆盖率
 
 ### 更新共享配置
 
-1. **Prettier**：修改 `packages/config/prettier/`
+1. **Prettier**：修改根目录 `prettier.config.cjs`（所有子项目自动继承）
 2. **ESLint**：直接修改各项目的 `eslint.config.mjs` 或 `eslint.config.ts`
 3. 如需要，更新 `pnpm-workspace.yaml` catalog 中的版本
-3. 运行 `pnpm install` 传播更改
-4. 在各包中使用 `pnpm format` 和 `pnpm lint` 测试
+4. 运行 `pnpm install` 传播更改
+5. 在各包中使用 `pnpm format` 和 `pnpm lint` 测试
 
 ### 创建新的微服务
 
@@ -357,7 +363,7 @@ docs: 更新架构图
 - `pnpm-workspace.yaml` - Workspace 包和版本 catalog
 - `servers/nest-cli.json` - NestJS monorepo 项目
 - `servers/tsconfig.json` - TypeScript 基础配置和路径别名
-- `packages/config/` - 共享 ESLint/Prettier 配置
+- `prettier.config.cjs` - 共享 Prettier 配置（根目录）
 - `.editorconfig` - 编辑器设置（2 空格，LF）
 - `AGENTS.md` - 开发者指南（中文）
 - `docs/ARCHITECTURE.md` - 文档索引

@@ -155,7 +155,7 @@ export default antfu(
     typescript: true,
     vue: false,
     node: true,
-    formatters: false,  // 继续使用 Prettier
+    formatters: false, // 继续使用 Prettier
   },
   {
     rules: {
@@ -178,7 +178,7 @@ export default antfu(
   {
     vue: true,
     typescript: true,
-    formatters: false,  // 继续使用 Prettier
+    formatters: false, // 继续使用 Prettier
   },
   {
     rules: {

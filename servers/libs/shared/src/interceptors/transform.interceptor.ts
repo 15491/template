@@ -39,8 +39,8 @@ export class InterceptorInterceptor implements NestInterceptor {
     const request = ctx.getRequest<Request>()
     return next.handle().pipe(
       map((data: ResponseData) => {
-        const message
-          = data?.message !== undefined && data.message !== null ? String(data.message) : '请求成功'
+        const message =
+          data?.message !== undefined && data.message !== null ? String(data.message) : '请求成功'
         const code = data?.code !== undefined && data.code !== null ? Number(data.code) : 200
         const responseData = data?.data !== undefined ? data.data : null
 
