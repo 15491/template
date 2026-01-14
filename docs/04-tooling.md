@@ -139,9 +139,9 @@ catalog:
 - 升级工具时只需修改 `pnpm-workspace.yaml` 一处
 - 自动应用到所有引用了 `catalog:` 的包
 
-### 5.2 共享配置包（@template/config）
+### 5.2 共享配置管理
 
-`packages/config` 导出统一的 Prettier 配置。ESLint 配置使用 `@antfu/eslint-config`。
+项目使用根目录的配置文件统一管理代码风格。各子项目自动继承根目录配置。
 
 **ESLint 配置（Node.js/NestJS）：**
 
@@ -192,9 +192,18 @@ export default antfu(
 
 **Prettier 配置：**
 
+所有子项目自动继承根目录的 `prettier.config.cjs`：
+
 ```javascript
-// prettier.config.cjs（根目录或各包）
-module.exports = require('@template/config/prettier')
+// prettier.config.cjs（根目录）
+/** @type {import("prettier").Config} */
+module.exports = {
+  semi: false,
+  singleQuote: true,
+  printWidth: 100,
+  trailingComma: 'all',
+  endOfLine: 'lf',
+}
 ```
 
 ### 5.3 TypeScript 配置
@@ -235,8 +244,8 @@ module.exports = require('@template/config/prettier')
 - ✅ 单一 Nest monorepo 结构（所有应用在 `servers/apps/`）
 - ✅ TypeScript 路径别名配置（`@app/shared` 等）
 - ✅ pnpm catalog 版本管理
-- ✅ 共享配置包（`@template/config`）
-- ✅ 统一的 EditorConfig 和 Prettier 配置
+- ✅ 统一的 Prettier 和 ESLint 配置（根目录 + 子项目）
+- ✅ 统一的 EditorConfig 配置
 
 建议后续完善：
 

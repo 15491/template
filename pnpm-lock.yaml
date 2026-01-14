@@ -38,9 +38,6 @@ importers:
 
   .:
     devDependencies:
-      '@template/config':
-        specifier: workspace:*
-        version: link:packages/config
       prettier:
         specifier: 'catalog:'
         version: 3.7.4
@@ -60,9 +57,6 @@ importers:
       '@antfu/eslint-config':
         specifier: 'catalog:'
         version: 4.19.0(@vue/compiler-sfc@3.5.26)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      '@template/config':
-        specifier: workspace:*
-        version: link:../../packages/config
       '@tsconfig/node24':
         specifier: ^24.0.3
         version: 24.0.3
@@ -104,8 +98,6 @@ importers:
         version: 3.2.2(typescript@5.9.3)
 
   packages/common: {}
-
-  packages/config: {}
 
   scripts: {}
 
@@ -151,9 +143,6 @@ importers:
       '@swc/core':
         specifier: ^1.10.7
         version: 1.15.8
-      '@template/config':
-        specifier: workspace:*
-        version: link:../packages/config
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.6

@@ -16,7 +16,6 @@
   "packageManager": "pnpm@10.17.0",
   "private": true,
   "devDependencies": {
-    "@template/config": "workspace:*",
     "prettier": "catalog:"
   }
 }

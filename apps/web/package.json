@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
-    "@template/config": "workspace:*",
     "@tsconfig/node24": "^24.0.3",
     "@types/node": "^24.10.4",
     "@vitejs/plugin-vue": "^6.0.3",

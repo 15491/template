@@ -18,7 +18,7 @@
 
 ```
 .editorconfig              # 编辑器配置（根目录）
-prettier.config.cjs        # Prettier 配置（引用 @template/config）
+prettier.config.cjs        # Prettier 配置（根目录）
 servers/eslint.config.mjs  # 后端 ESLint（使用 @antfu/eslint-config）
 apps/web/eslint.config.ts  # 前端 ESLint（使用 @antfu/eslint-config）
 ```
@@ -628,7 +628,6 @@ pnpm add -D husky lint-staged
 
 - [EditorConfig 配置](.editorconfig)
 - [Prettier 配置](../prettier.config.cjs)
-- [ESLint 配置](../packages/config/eslint/)
 - [NestJS 最佳实践](https://docs.nestjs.com/)
 - [Vue 风格指南](https://vuejs.org/style-guide/)
 - [TypeScript 手册](https://www.typescriptlang.org/docs/)

@@ -15,7 +15,7 @@
 - 1 个 API 网关（`gateway`）
 - 3 个 BFF 应用（`ma-web`、`ma-admin`、`ma-mobile`）
 - 3 个核心微服务（`ms-auth`、`ms-rbac`、`ms-user`）
-- 统一配置管理（pnpm catalog + @template/config）
+- 统一配置管理（pnpm catalog + 根目录配置文件）
 - 共享库基础结构（`servers/libs/shared`）
 
 **待完善：**

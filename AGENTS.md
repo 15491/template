@@ -6,7 +6,7 @@
 - `servers/bff/`：NestJS BFF/网关层（`apps/gateway`、`apps/web`、`apps/admin`、`apps/mobile`）。
 - `servers/microservices/`：NestJS 微服务层（`apps/auth`、`apps/rbac`、`apps/user`）。
 - `servers/libs/`：仅后端共享代码（如 Prisma/DB：`servers/libs/database/`）。
-- `packages/config/`：共享 ESLint/Prettier 配置（通过 `@template/config/*` 引用）。
+- `packages/common/`：跨端共享代码（类型、工具等）。
 - `docs/`：架构与边界约定（建议从 `docs/ARCHITECTURE.md` 开始）。
 
 ## 构建、测试与本地开发命令
@@ -21,8 +21,8 @@
 ## 代码风格与命名约定
 
 - 基础格式：2 空格缩进、LF 换行、去除行尾空格（见 `.editorconfig`）。
-- Prettier：单引号、无分号、`printWidth: 100`（见 `prettier.config.cjs` / `packages/config/prettier/`）。
-- ESLint：使用 `@template/config` 提供的 flat config（Node + Vue）；优先通过 `pnpm <pkg> lint` 自动修复。
+- Prettier：单引号、无分号、`printWidth: 100`（见根目录 `prettier.config.cjs`）。
+- ESLint：使用 `@antfu/eslint-config`（各项目有独立的 eslint.config 文件）；优先通过 `pnpm <pkg> lint` 自动修复。
 - 命名：目录保持小写（例如 `servers/microservices/apps/user/`），避免随意调整公共导出 API。
 
 ## 测试指南
